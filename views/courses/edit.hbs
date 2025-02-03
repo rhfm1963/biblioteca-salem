@@ -1,0 +1,30 @@
+
+
+<div class="container mt-5">
+  <h1>Editar Curso</h1>
+  <form action="/courses/edit/{{ course._id }}" method="POST">
+    <div class="form-group">
+      <label for="title">Título</label>
+      <input type="text" class="form-control" id="title" name="title" value="{{ course.title }}" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Descripción</label>
+      <textarea class="form-control" id="description" name="description" rows="3" required>{{ course.description }}</textarea>
+    </div>
+    <div class="form-group">
+      <label for="instructor">Instructor</label>
+      <input type="text" class="form-control" id="instructor" name="instructor" value="{{ course.instructor }}" required>
+    </div>
+    <div class="form-group">
+      <label for="duration">Duración (horas)</label>
+      <input type="number" class="form-control" id="duration" name="duration" value="{{ course.duration }}" required>
+    </div>
+    <div class="form-group">
+      <label for="price">Precio (USD)</label>
+      <input type="number" step="0.01" class="form-control" id="price" name="price" value="{{ course.price }}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+    <a href="/courses" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
+

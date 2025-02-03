@@ -1,0 +1,32 @@
+
+
+<div class="container mt-5">
+  <h1>Cursos Disponibles para Inscripción</h1>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Descripción</th>
+        <th>Instructor</th>
+        <th>Duración (horas)</th>
+        <th>Precio (USD)</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each courses}}
+        <tr>
+          <td>{{ this.title }}</td>
+          <td>{{ this.description }}</td>
+          <td>{{ this.instructor }}</td>
+          <td>{{ this.duration }}</td>
+          <td>{{ this.price }}</td>
+          <td>
+            <a href="/courses/enroll/{{ this._id }}" class="btn btn-success btn-sm">Inscribirse</a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+

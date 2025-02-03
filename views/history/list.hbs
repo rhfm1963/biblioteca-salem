@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <h1>Registros Históricos</h1>
+  <table class="table table-bordered table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>Usuario</th>
+        <th>Curso</th>
+        <th>Calificación</th>
+        <th>Certificado</th>
+        <th>Fecha</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each history}}
+        <tr>
+          <td>{{ this.userId.name }} ({{ this.userId.email }})</td>
+          <td>{{ this.courseId.title }} - {{ this.courseId.instructor }}</td>
+          <td>{{ this.grade }}</td>
+          <td>
+            {{#if this.certificateId}}
+              <a href="/certificates/print/{{ this.certificateId._id }}">Ver Certificado</a>
+            {{else}}
+              Sin certificado
+            {{/if}}
+          </td>
+          <td>{{ this.date }}</td>
+        </tr>
+      {{else}}
+        <tr>
+          <td colspan="5" class="text-center">No hay registros históricos.</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
