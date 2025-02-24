@@ -72,6 +72,24 @@ app.get('/auth/login', (req, res) => {
   res.render('auth/login'); // Renderiza login.hbs en la carpeta views/auth
 });
 
+// Ruta para el Logout
+app.get('/auth/logout', (req, res) => {
+  console.log('Solicitud de logout recibida');
+  req.logout((err) => {
+      if (err) {
+          console.error('Error al hacer logout:', err);
+          return res.status(500).json({ message: 'Error al hacer logout' });
+      }
+      console.log('Logout exitoso');
+      res.status(200).json({ message: 'Logout exitoso' });
+      
+  });
+  // res.render('home', { title: 'Inicio' }); // Asegúrate de que 'home.hbs' exista en views/
+  // return res.redirect('/');
+  return res.redirect('/'); // Asegúrate de que 'home.hbs' exista en views/
+});
+
+
 // Iniciar servidor
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
