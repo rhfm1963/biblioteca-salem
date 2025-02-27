@@ -32,7 +32,7 @@ exports.postAddCourse = async (req, res) => {
 };
 
 // Mostrar formulario para editar curso
-console.log('postEditCourse está siendo llamada'); // Agrega esto al inicio de la función
+// console.log('postEditCourse está siendo llamada'); // Agrega esto al inicio de la función
 exports.getEditCourse = async (req, res) => {
   try {
     const course = await Course.findById(req.params.id);
@@ -44,7 +44,6 @@ exports.getEditCourse = async (req, res) => {
 };
 
 // Procesar formulario para editar curso
-console.log('postEditCourse está siendo llamada'); // Agrega esto al inicio de la función
 exports.postEditCourse = async (req, res) => {
   try {
     const { id } = req.params;

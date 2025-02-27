@@ -44,4 +44,17 @@ router.post('/register', async (req, res) => {
   }
 });
 
+// Ruta para logout
+router.post('/logout', (req, res) => {
+    // Aquí puedes limpiar la sesión o las cookies
+    req.logout((err) => {
+        if (err) {
+            return res.status(500).json({ message: 'Error al hacer logout' });
+        }
+        res.status(200).json({ message: 'Logout exitoso' });
+        // return res.redirect('/');
+      //  res.render('home', { title: 'Inicio' }); // Asegúrate de que 'home.hbs' exista en views/
+    });
+});
+
 module.exports = router;
